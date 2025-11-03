@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact & Quote | AuraVolt Solutions</title>
+  <meta name="description" content="Affordable solar panel installation. Switch to clean energy and cut your bills." />
+  <link rel="preload" href="/assets/css/styles.css" as="style" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <link rel="icon" href="/assets/img/sun.svg" />
+  <meta property="og:title" content="Contact & Quote | AuraVolt Solutions" />
+  <meta property="og:description" content="Affordable solar panel installation. Switch to clean energy and cut your bills." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="/" />
+  <meta property="og:image" content="/assets/img/og-placeholder.png" />
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "AuraVolt Solutions",
+  "image": "/assets/img/og-placeholder.png",
+  "telephone": "(555) 123-0123",
+  "email": "hello@auravolt.example",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "123 Sunshine Ave",
+    "addressLocality": "Edmonton",
+    "addressRegion": "AB",
+    "postalCode": "T5A 1A1",
+    "addressCountry": "CA"
+  },
+  "url": "https://example.com",
+  "priceRange": "$$",
+  "areaServed": {
+    "@type": "Place",
+    "name": "Alberta"
+  }
+}
+  </script>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a href="/" class="logo"><img src="/assets/img/sun.svg" alt="" width="28" height="28"/><span>AuraVolt Solutions</span></a>
+    <nav class="site-nav" id="site-nav">
+      <a href="/">Home</a>
+      <a href="/pages/residential.html">Residential</a>
+      <a href="/pages/commercial.html">Commercial</a>
+      <a href="/pages/rebates.html">Rebates</a>
+      <a href="/pages/projects.html">Projects</a>
+      <a href="/pages/faq.html">FAQ</a>
+      <a class="btn btn-small" href="/pages/contact.html">Get a Quote</a>
+    </nav>
+    <button class="menu-toggle" aria-controls="site-nav" aria-expanded="false" onclick="toggleMenu()">☰</button>
+  </div>
+</header>
+<main>
+
+<section class="page-hero">
+  <div class="wrap">
+    <h1>Get a Free Quote</h1>
+    <p>Fill this out and we’ll email a quick estimate.</p>
+  </div>
+</section>
+
+<section class="wrap contact">
+  <form id="quoteForm" class="quote-form big" method="post" action="mailto:hello@auravolt.example" enctype="text/plain">
+    <div class="grid2">
+      <label>Full Name
+        <input name="name" required />
+      </label>
+      <label>Email
+        <input type="email" name="email" required />
+      </label>
+    </div>
+    <div class="grid2">
+      <label>Phone
+        <input name="phone" />
+      </label>
+      <label>Postal Code
+        <input name="postal" required />
+      </label>
+    </div>
+    <label>Address
+      <input name="address" placeholder="Street, city" />
+    </label>
+    <label>Average monthly electric bill
+      <input name="bill" placeholder="$" />
+    </label>
+    <label>Notes
+      <textarea name="notes" rows="5" placeholder="Tell us about your roof, shading, timeline..."></textarea>
+    </label>
+    <input type="text" name="company" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+    <button class="btn" type="submit">Request Quote</button>
+    <p class="fine">By submitting, you agree to be contacted about your quote. We never sell your data.</p>
+  </form>
+
+  <aside class="contact-card">
+    <h3>Contact</h3>
+    <p><strong>Phone:</strong> <a href="tel:+15551230123">(555) 123-0123</a><br/>
+       <strong>Email:</strong> <a href="mailto:hello@auravolt.example">hello@auravolt.example</a></p>
+    <address>123 Sunshine Ave, Edmonton, AB T5A 1A1</address>
+    <div class="map-embed" aria-hidden="true">
+      <img src="/assets/img/map.svg" alt="" />
+    </div>
+  </aside>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="f-col">
+      <div class="logo-row"><img src="/assets/img/sun.svg" alt="" width="20" height="20"/><strong>AuraVolt Solutions</strong></div>
+      <p>Low-cost solar, installed right. Licensed & insured installers, 25-year panel warranty, and clear pricing.</p>
+    </div>
+    <div class="f-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/pages/about.html">About</a></li>
+        <li><a href="/pages/projects.html">Projects</a></li>
+        <li><a href="/pages/faq.html">FAQ</a></li>
+        <li><a href="/pages/contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Contact</h4>
+      <p>123 Sunshine Ave<br/>Edmonton, AB T5A 1A1</p>
+      <p><a href="tel:+15551230123">(555) 123-0123</a><br/><a href="mailto:hello@auravolt.example">hello@auravolt.example</a></p>
+    </div>
+  </div>
+  <div class="sub-footer">
+    <div class="wrap">
+      <small>© <span id="year"></span> AuraVolt Solutions. All rights reserved.</small>
+      <small>Site by AuraVolt Solutions.</small>
+    </div>
+  </div>
+</footer>
+<script defer src="/assets/js/main.js"></script>
+</body>
+</html>
