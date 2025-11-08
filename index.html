@@ -61,19 +61,27 @@
     <div class="hero-copy">
       <h1>Save 20–60% on power with <em>low-cost solar</em>.</h1>
       <p>We design and install solar systems that pay for themselves—without premium markups. Start with a free, no-pressure quote in under 60 seconds.</p>
-      <div id=opensolar_lead_container></div>
-      <script id="opensolar_lead_capture" type="text/javascript" src="https://api.opensolar.com/api/lead_capture_widget/bea84f1466134610a84b80f0bf6c2d73"></script>
+
+      <!-- OpenSolar lead form wrapped so it doesn't blow up the layout -->
+      <div class="hero-form">
+        <div id="opensolar_lead_container"></div>
+      </div>
+
       <div class="trustbar">
         <span>✔ Licensed & Insured</span>
         <span>✔ 25-year Panel Warranty</span>
         <span>✔ Price-Match Guarantee</span>
       </div>
     </div>
+
     <div class="hero-art">
-      <img src="/assets/img/hero-house.svg" alt="House roof with solar panels" width="560" height="360" loading="eager"/>
+      <img src="/assets/img/hero-house.svg"
+           alt="House roof with solar panels"
+           width="560" height="360" loading="eager" />
     </div>
   </div>
 </section>
+
 
 <section class="badge-cards">
   <div class="wrap">
@@ -174,7 +182,7 @@
     </div>
     <div class="f-col">
       <h4>Contact</h4>
-      <p>19624 73a Ave<br/>Langley, BC V2Y 3C5/p>
+      <p>19624 73a Ave<br/>Langley, BC V2Y 3C5</p>
       <p><a href="tel:+15551230123">(555) 123-0123</a><br/><a href="mailto:hello@auravolt.example">hello@auravolt.example</a></p>
     </div>
   </div>
@@ -186,5 +194,12 @@
   </div>
 </footer>
 <script defer src="/assets/js/main.js"></script>
+  <!-- just before </body> -->
+<script
+  id="opensolar_lead_capture"
+  type="text/javascript"
+  src="https://api.opensolar.com/api/lead_capture_widget/bea84f1466134610a84b80f0bf6c2d73">
+</script>
+
 </body>
 </html>
