@@ -39,31 +39,49 @@ a:hover{text-decoration:underline}
 /* Hero */
 .hero{
   padding:64px 0;
-  background:linear-gradient(180deg,#f0fffb, #fff);
+  background:linear-gradient(180deg,#f0fffb,#fff);
 }
+
 .hero .wrap{
   display:grid;
-  grid-template-columns:1.2fr 1fr;
-  gap:24px;
-  align-items:flex-start; /* was center */
+  grid-template-columns:1.1fr 0.9fr;
+  gap:32px;
+  align-items:flex-start;        /* top-align columns */
 }
+
 .hero h1{
   font-size:clamp(2rem,3.4vw,3rem);
   line-height:1.1;
   margin:0 0 10px;
 }
-.hero p{max-width:60ch;}
-.hero-copy{
-  max-width:560px;
+
+.hero p{
+  max-width:40rem;
+  margin-bottom:12px;
 }
+
+.hero-copy{
+  max-width:520px;               /* keep text/form column narrower */
+}
+
 .hero-art{
   display:flex;
-  justify-content:center;
   align-items:flex-end;
+  justify-content:center;
 }
+
 .hero-art img{
   width:100%;
   height:auto;
+}
+
+@media (max-width:900px){
+  .hero .wrap{
+    grid-template-columns:1fr;
+  }
+  .hero-art{
+    order:-1;                    /* optional: show image above text on mobile */
+  }
 }
 
 .hero-form{
@@ -73,29 +91,22 @@ a:hover{text-decoration:underline}
   border:1px solid #e8edf2;
   border-radius:12px;
   padding:18px 16px;
-  box-shadow:0 18px 45px rgba(15,23,42,.08);
+  box-shadow:0 18px 40px rgba(15,23,42,.08);
 }
 
-/* Keep widget in-flow and full width */
+/* Keep widget in-flow and not pinned to the viewport */
 #opensolar_lead_container{
   position:static !important;
   width:100% !important;
 }
 
-/* Generic tidy-up for the injected form/iframe */
+/* Make whatever OpenSolar injects behave responsively */
 #opensolar_lead_container iframe,
 #opensolar_lead_container form{
   width:100% !important;
   max-width:100% !important;
 }
 
-#opensolar_lead_container input,
-#opensolar_lead_container select,
-#opensolar_lead_container button{
-  width:100% !important;
-  box-sizing:border-box;
-  font-size:.9rem;
-}
 
 
 /* Cards */
