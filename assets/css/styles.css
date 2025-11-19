@@ -1,0 +1,8 @@
+
+body {font-family: Arial, sans-serif; margin:0; background:#0b1120; color:#e5e7eb;}
+.container {max-width: 960px; margin: auto; padding: 1rem;}
+.topbar {background:#111827; padding:.5rem; text-align:center;}
+.hero {padding:2rem 0; text-align:center;}
+.hero h1 {color:#facc15;}
+.trustbar span {margin-right:1rem;}
+footer {background:#111827; padding:1rem; text-align:center; font-size:.9rem; color:#9ca3af;}
