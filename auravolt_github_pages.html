@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraVolt - Solar Installation Services</title>
+    <meta name="description" content="Transform your home with clean solar energy. Professional solar panel installation services.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css">
+    <style>
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in {
+            animation: fade-in 0.8s ease-out forwards;
+        }
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: .5;
+            }
+        }
+        .animate-bounce {
+            animation: bounce 1s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(-25%);
+                animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+            }
+            50% {
+                transform: translateY(0);
+                animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <!-- OpenSolar Lead Capture Scripts -->
+    <script id="opensolar_lead_capture_1" type="text/javascript" src="https://api.opensolar.com/api/lead_capture_widget/bea84f1466134610a84b80f0bf6c2d73" async></script>
+    <script id="opensolar_lead_capture_2" type="text/javascript" src="https://api.opensolar.com/api/lead_capture_widget/74a239ed7c634b5ebca597010c19ee34" async></script>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // Lucide Icons as Components
+        const Sun = () => (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2"></path>
+                <path d="M12 20v2"></path>
+                <path d="m4.93 4.93 1.41 1.41"></path>
+                <path d="m17.66 17.66 1.41 1.41"></path>
+                <path d="M2 12h2"></path>
+                <path d="M20 12h2"></path>
+                <path d="m6.34 17.66-1.41 1.41"></path>
+                <path d="m19.07 4.93-1.41 1.41"></path>
+            </svg>
+        );
+
+        const Zap = () => (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+        );
+
+        const DollarSign = () => (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="12" y1="1" x2="12" y2="23"></line>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+        );
+
+        const Leaf = () => (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+            </svg>
+        );
+
+        const Phone = () => (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+        );
+
+        const Mail = () => (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg>
+        );
+
+        const MapPin = () => (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+        );
+
+        const ArrowRight = () => (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+        );
+
+        function SolarLandingPage() {
+            const [scrolled, setScrolled] = useState(false);
+            const [activeTestimonial, setActiveTestimonial] = useState(0);
+
+            useEffect(() => {
+                const handleScroll = () => setScrolled(window.scrollY > 50);
+                window.addEventListener('scroll', handleScroll);
+                return () => window.removeEventListener('scroll', handleScroll);
+            }, []);
+
+            useEffect(() => {
+                const interval = setInterval(() => {
+                    setActiveTestimonial(prev => (prev + 1) % 3);
+                }, 5000);
+                return () => clearInterval(interval);
+            }, []);
+
+            const benefits = [
+                { Icon: DollarSign, title: "Save Money", desc: "Reduce your electricity bills by up to 90%" },
+                { Icon: Leaf, title: "Go Green", desc: "Lower your carbon footprint significantly" },
+                { Icon: Zap, title: "Energy Independence", desc: "Generate your own clean power" },
+                { Icon: Sun, title: "Increase Home Value", desc: "Boost property value by 4-6%" }
+            ];
+
+            const testimonials = [
+                { name: "Sarah Johnson", location: "Vancouver", text: "Our energy bills dropped by 85% in the first year. Best investment we've made!", rating: 5 },
+                { name: "Mike Chen", location: "Surrey", text: "Professional installation, great support. Solar was easier than we thought!", rating: 5 },
+                { name: "Emily Rodriguez", location: "Burnaby", text: "The team was knowledgeable and efficient. We're now energy independent!", rating: 5 }
+            ];
+
+            const processSteps = [
+                { step: "1", title: "Free Consultation", desc: "We assess your home and energy needs" },
+                { step: "2", title: "Custom Design", desc: "Tailored solar system for maximum efficiency" },
+                { step: "3", title: "Professional Install", desc: "Expert installation in 1-3 days" },
+                { step: "4", title: "Start Saving", desc: "Enjoy clean energy and lower bills" }
+            ];
+
+            return (
+                <div className="min-h-screen bg-white">
+                    {/* Header */}
+                    <header className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-lg' : 'bg-transparent'}`}>
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="flex justify-between items-center py-4">
+                                <div className="flex items-center space-x-3">
+                                    <img src="https://i.imgur.com/5FZ8K3q.png" alt="AuraVolt Logo" className="h-12 w-auto" />
+                                    <span className={`text-2xl font-bold ${scrolled ? 'text-gray-900' : 'text-white'}`}>AuraVolt</span>
+                                </div>
+                                <nav className="hidden md:flex space-x-8">
+                                    {['Benefits', 'Process', 'Testimonials', 'Contact'].map(item => (
+                                        <a key={item} href={`#${item.toLowerCase()}`} className={`${scrolled ? 'text-gray-700 hover:text-yellow-500' : 'text-white hover:text-yellow-300'} transition-colors font-medium`}>
+                                            {item}
+                                        </a>
+                                    ))}
+                                </nav>
+                                <button className="bg-yellow-500 text-gray-900 px-6 py-2 rounded-full font-semibold hover:bg-yellow-400 transition-all transform hover:scale-105 shadow-lg">
+                                    Get Quote
+                                </button>
+                            </div>
+                        </div>
+                    </header>
+
+                    {/* Hero Section */}
+                    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-900"></div>
+                        <div className="absolute inset-0 opacity-20">
+                            <div className="absolute top-20 left-10 w-72 h-72 bg-yellow-400 rounded-full blur-3xl animate-pulse"></div>
+                            <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-400 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+                        </div>
+                        
+                        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                            <div className="animate-fade-in">
+                                <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                                    Power Your Home<br />with Clean <span className="text-yellow-400">Solar Energy</span>
+                                </h1>
+                                <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
+                                    Join thousands of homeowners saving money while protecting the planet. Get your free solar assessment today.
+                                </p>
+                                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                    <button className="bg-yellow-500 text-gray-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-400 transition-all transform hover:scale-105 shadow-2xl flex items-center justify-center gap-2">
+                                        Get Free Quote <ArrowRight />
+                                    </button>
+                                    <button className="bg-white/10 backdrop-blur-sm text-white border-2 border-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition-all">
+                                        Learn More
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div className="mt-16 grid grid-cols-3 gap-8 max-w-3xl mx-auto">
+                                {[{ num: "5000+", label: "Installations" }, { num: "90%", label: "Savings" }, { num: "25yr", label: "Warranty" }].map((stat, i) => (
+                                    <div key={i} className="text-center animate-fade-in" style={{animationDelay: `${i * 0.2}s`}}>
+                                        <div className="text-4xl font-bold text-yellow-400 mb-2">{stat.num}</div>
+                                        <div className="text-blue-100">{stat.label}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+                            <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+                                <div className="w-1 h-3 bg-white rounded-full mt-2"></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Benefits Section */}
+                    <section id="benefits" className="py-20 bg-gray-50">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="text-center mb-16">
+                                <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose Solar?</h2>
+                                <p className="text-xl text-gray-600">Transform your home with sustainable energy</p>
+                            </div>
+                            
+                            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                                {benefits.map((benefit, i) => (
+                                    <div key={i} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 duration-300">
+                                        <div className="bg-gradient-to-br from-yellow-400 to-orange-500 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transform rotate-3 hover:rotate-6 transition-transform">
+                                            <benefit.Icon />
+                                        </div>
+                                        <h3 className="text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
+                                        <p className="text-gray-600">{benefit.desc}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Process Section */}
+                    <section id="process" className="py-20 bg-white">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="text-center mb-16">
+                                <h2 className="text-4xl font-bold text-gray-900 mb-4">Simple Process</h2>
+                                <p className="text-xl text-gray-600">From consultation to installation in 4 easy steps</p>
+                            </div>
+                            
+                            <div className="grid md:grid-cols-4 gap-8">
+                                {processSteps.map((step, i) => (
+                                    <div key={i} className="relative">
+                                        <div className="text-center">
+                                            <div className="bg-gradient-to-br from-blue-500 to-indigo-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-bold text-white shadow-lg">
+                                                {step.step}
+                                            </div>
+                                            <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
+                                            <p className="text-gray-600">{step.desc}</p>
+                                        </div>
+                                        {i < 3 && (
+                                            <div className="hidden md:block absolute top-10 left-[60%] w-[80%] h-0.5 bg-gradient-to-r from-blue-500 to-indigo-600"></div>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Testimonials Section */}
+                    <section id="testimonials" className="py-20 bg-gradient-to-br from-blue-600 to-indigo-900">
+                        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="text-center mb-16">
+                                <h2 className="text-4xl font-bold text-white mb-4">What Our Clients Say</h2>
+                                <p className="text-xl text-blue-100">Real experiences from real homeowners</p>
+                            </div>
+                            
+                            <div className="relative bg-white rounded-3xl p-8 md:p-12 shadow-2xl min-h-[300px]">
+                                {testimonials.map((testimonial, i) => (
+                                    <div key={i} className={`transition-opacity duration-500 ${i === activeTestimonial ? 'opacity-100' : 'opacity-0 absolute inset-0 p-8 md:p-12'}`}>
+                                        <div className="flex gap-1 mb-4 justify-center">
+                                            {[...Array(testimonial.rating)].map((_, j) => (
+                                                <Sun key={j} />
+                                            ))}
+                                        </div>
+                                        <p className="text-xl text-gray-700 mb-6 italic text-center">"{testimonial.text}"</p>
+                                        <div className="text-center">
+                                            <div className="font-bold text-gray-900">{testimonial.name}</div>
+                                            <div className="text-gray-600">{testimonial.location}</div>
+                                        </div>
+                                    </div>
+                                ))}
+                                
+                                <div className="flex justify-center gap-2 mt-8">
+                                    {testimonials.map((_, i) => (
+                                        <button key={i} onClick={() => setActiveTestimonial(i)} className={`w-3 h-3 rounded-full transition-all ${i === activeTestimonial ? 'bg-blue-600 w-8' : 'bg-gray-300'}`}></button>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* CTA Section */}
+                    <section className="py-20 bg-yellow-400">
+                        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Ready to Go Solar?</h2>
+                            <p className="text-xl text-gray-800 mb-8">Get your free consultation and custom quote today. No obligation.</p>
+                            <button className="bg-gray-900 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-800 transition-all transform hover:scale-105 shadow-2xl">
+                                Schedule Free Consultation
+                            </button>
+                        </div>
+                    </section>
+
+                    {/* Contact Section */}
+                    <section id="contact" className="py-20 bg-gray-50">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="grid md:grid-cols-2 gap-12">
+                                <div>
+                                    <h2 className="text-3xl font-bold text-gray-900 mb-6">Get In Touch</h2>
+                                    <p className="text-gray-600 mb-8">Have questions? Our solar experts are here to help you make the switch to clean energy.</p>
+                                    
+                                    <div className="space-y-6">
+                                        {[
+                                            { Icon: Phone, text: "(604) 555-SOLAR" },
+                                            { Icon: Mail, text: "info@auravolt.com" },
+                                            { Icon: MapPin, text: "Vancouver, BC" }
+                                        ].map((contact, i) => (
+                                            <div key={i} className="flex items-center gap-4">
+                                                <div className="bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center">
+                                                    <contact.Icon />
+                                                </div>
+                                                <span className="text-gray-700 text-lg">{contact.text}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                                
+                                <div className="bg-white p-8 rounded-2xl shadow-lg">
+                                    <h3 className="text-2xl font-bold text-gray-900 mb-6">Request a Quote</h3>
+                                    <div className="space-y-4">
+                                        <input type="text" placeholder="Your Name" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" />
+                                        <input type="email" placeholder="Email Address" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" />
+                                        <input type="tel" placeholder="Phone Number" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" />
+                                        <textarea placeholder="Tell us about your home" rows="4" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"></textarea>
+                                        <button onClick={(e) => e.preventDefault()} className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                                            Send Message
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Footer */}
+                    <footer className="bg-gray-900 text-white py-12">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="flex flex-col md:flex-row justify-between items-center">
+                                <div className="flex items-center space-x-3 mb-4 md:mb-0">
+                                    <img src="https://i.imgur.com/5FZ8K3q.png" alt="AuraVolt Logo" className="h-10 w-auto" />
+                                    <span className="text-2xl font-bold">AuraVolt</span>
+                                </div>
+                                <div className="text-gray-400 text-center md:text-right">
+                                    <p>&copy; 2024 AuraVolt. All rights reserved.</p>
+                                    <p className="mt-2">Licensed & Insured Solar Installers</p>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<SolarLandingPage />, document.getElementById('root'));
+    </script>
+</body>
+</html>
