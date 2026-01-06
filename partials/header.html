@@ -1,29 +1,21 @@
-<header class="site-header" data-site-header>
-  <div class="site-header__inner">
-    <a class="site-brand" href="index.html" aria-label="AuraVolt Home">
-      <img src="logo.png" alt="AuraVolt Logo" class="site-brand__logo" />
-      <span class="site-brand__name">AuraVolt</span>
-    </a>
+<header data-site-header class="fixed w-full z-50 transition-all duration-300 bg-transparent">
+  <div class="container-max mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center py-4">
+      <a href="index.html" class="flex items-center space-x-3">
+        <img src="logo.png" alt="AuraVolt Logo" class="h-12 w-auto" />
+        <span class="text-2xl font-bold">AuraVolt</span>
+      </a>
 
-    <button
-      class="site-menu-btn"
-      type="button"
-      aria-label="Open menu"
-      aria-expanded="false"
-      aria-controls="site-nav"
-    >
-      <span class="site-menu-btn__bar"></span>
-      <span class="site-menu-btn__bar"></span>
-      <span class="site-menu-btn__bar"></span>
-    </button>
+      <nav class="hidden md:flex space-x-8 font-medium">
+        <a data-nav-link href="index.html" class="hover:text-yellow-300 transition-colors">Home</a>
+        <a data-nav-link href="services.html" class="hover:text-yellow-300 transition-colors">Services</a>
+        <a data-nav-link href="about.html" class="hover:text-yellow-300 transition-colors">About</a>
+        <a data-nav-link href="contact.html" class="hover:text-yellow-300 transition-colors">Contact</a>
+      </nav>
 
-    <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
-      <a data-nav-link href="index.html" class="site-nav__link">Home</a>
-      <a data-nav-link href="services.html" class="site-nav__link">Services</a>
-      <a data-nav-link href="about.html" class="site-nav__link">About</a>
-      <a data-nav-link href="contact.html" class="site-nav__link">Contact</a>
-    </nav>
-
-    <a class="site-cta" href="contact.html#quote">Get Quote</a>
+      <a href="contact.html#quote" class="bg-yellow-500 text-gray-900 px-6 py-2 rounded-full font-semibold hover:bg-yellow-400 transition-all transform hover:scale-105 shadow-lg">
+        Get Quote
+      </a>
+    </div>
   </div>
 </header>
