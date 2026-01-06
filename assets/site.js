@@ -12,30 +12,72 @@ async function includePartials() {
   }));
 }
 
-function wireHeaderScroll() {
+
+function setActiveNav() {
+  const path = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('[data-nav-link]').forEach((a) => {
+    const href = (a.getAttribute('href') || '').split('/').pop();
+    if (href === path) a.classList.add('is-active');
+  });
+}
+
+function wireMobileMenu() {
+  const btn = document.querySelector('.site-menu-btn');
+  const nav = document.querySelector('#site-nav');
+  if (!btn || !nav) return;
+
+  const close = () => {
+    nav.style.display = 'none';
+    btn.setAttribute('aria-expanded', 'false');
+  };
+
+  const open = () => {
+    nav.style.display = 'flex';
+    btn.setAttribute('aria-expanded', 'true');
+  };
+
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    expanded ? close() : open();
+  });
+
+  nav.addEventListener('click', (e) => {
+    if (e.target && e.target.matches('a')) close();
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target) && !btn.contains(e.target)) close();
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) nav.style.display = 'flex';
+    else close();
+  });
+
+  if (window.innerWidth > 900) nav.style.display = 'flex';
+  else close();
+}
+
+function wireHeaderShadow() {
   const header = document.querySelector('[data-site-header]');
   if (!header) return;
+
   const onScroll = () => {
-    const scrolled = window.scrollY > 50;
-    header.classList.toggle('bg-white', scrolled);
-    header.classList.toggle('shadow-lg', scrolled);
-    header.classList.toggle('bg-transparent', !scrolled);
-    header.classList.toggle('text-white', !scrolled);
+    header.classList.toggle('is-scrolled', window.scrollY > 10);
   };
+
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 }
 
-function setActiveNav() {
-  const path = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('[data-nav-link]').forEach(a => {
-    const href = (a.getAttribute('href') || '').split('/').pop();
-    if (href === path) a.classList.add('text-yellow-400');
-  });
-}
-
 document.addEventListener('DOMContentLoaded', async () => {
-  await includePartials();
+  // If your site uses partial injection, keep this:
+  if (typeof includePartials === 'function') {
+    await includePartials();
+  }
+
   setActiveNav();
-  wireHeaderScroll();
+  wireMobileMenu();
+  wireHeaderShadow();
 });
+
