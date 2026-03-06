@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us – AuraVolt</title>
+  <meta name="description" content="BC's most trusted solar installation team. 10+ years experience, certified in-house crew, and hundreds of installations across British Columbia." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 60px;
+    }
+    .team-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 8px;
+      padding: 36px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .team-card:hover { border-color: rgba(245,166,35,0.3); transform: translateY(-4px); }
+    .team-avatar {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--sun), var(--sky-light));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      color: var(--sky);
+      margin: 0 auto 20px;
+    }
+    .team-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+    .team-card .team-role { font-size: 13px; color: var(--sun); font-weight: 600; margin-bottom: 12px; }
+    .team-card p { font-size: 14px; color: rgba(248,245,238,0.65); line-height: 1.6; }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .value-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 8px;
+      padding: 36px;
+    }
+    .value-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px;
+      letter-spacing: 0.5px;
+      color: var(--sun);
+      margin-bottom: 12px;
+    }
+    .value-card p { font-size: 15px; line-height: 1.7; color: rgba(248,245,238,0.65); }
+    @media (max-width: 900px) {
+      .team-grid, .values-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <script src="js/components.js"></script>
+
+  <main>
+
+    <div class="page-hero">
+      <div class="section-tag">About AuraVolt</div>
+      <div class="divider"></div>
+      <h1>Powering British Columbia<br>Since 2014</h1>
+      <p>We started AuraVolt with one goal: make clean energy accessible to every BC home and business — with no shortcuts and no subcontractors.</p>
+    </div>
+
+    <!-- STORY -->
+    <section style="background: var(--sky-mid);">
+      <div class="why-inner reveal">
+        <div>
+          <div class="section-tag">Our Story</div>
+          <div class="divider"></div>
+          <h2 class="section-title">Built on Accountability</h2>
+          <p style="font-size:16px;line-height:1.8;color:rgba(248,245,238,0.75);margin-bottom:20px;">
+            AuraVolt was founded in 2014 by a team of Red Seal electricians who were frustrated watching homeowners get burned by solar contractors who overpromised, outsourced the real work, and disappeared after installation.
+          </p>
+          <p style="font-size:16px;line-height:1.8;color:rgba(248,245,238,0.75);margin-bottom:20px;">
+            We built AuraVolt differently: every consultation, design, permit application, installation, and maintenance visit is performed by our own certified team. No middlemen. Full accountability.
+          </p>
+          <p style="font-size:16px;line-height:1.8;color:rgba(248,245,238,0.75);">
+            Today, we've installed hundreds of systems from Vancouver to Kelowna, and every single one is backed by the same local crew who installed it.
+          </p>
+        </div>
+        <div class="why-stats">
+          <div class="why-stat-card">
+            <div class="big-num">2014</div>
+            <div class="num-label">Year AuraVolt was founded</div>
+          </div>
+          <div class="why-stat-card">
+            <div class="big-num">500+</div>
+            <div class="num-label">Systems installed across BC</div>
+          </div>
+          <div class="why-stat-card">
+            <div class="big-num">4.9★</div>
+            <div class="num-label">Average Google review rating</div>
+          </div>
+          <div class="why-stat-card">
+            <div class="big-num">100%</div>
+            <div class="num-label">In-house certified installation crew</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUES -->
+    <section style="background: var(--sky);">
+      <div class="reveal">
+        <div class="section-tag">What We Stand For</div>
+        <div class="divider"></div>
+        <h2 class="section-title">Our Core Values</h2>
+      </div>
+      <div class="values-grid reveal">
+        <div class="value-card">
+          <h3>Accountability</h3>
+          <p>Every project is owned by our team from start to finish. We never hand your project to a subcontractor. If something needs fixing, we're there — no finger pointing, no delay.</p>
+        </div>
+        <div class="value-card">
+          <h3>Transparency</h3>
+          <p>We give you honest projections, real numbers, and clear timelines before you sign anything. No bait-and-switch pricing. No surprise fees at installation.</p>
+        </div>
+        <div class="value-card">
+          <h3>Craftsmanship</h3>
+          <p>Our certified Red Seal electricians and Solar PV installers take pride in every mount, every connection, every conduit run. We build systems that last decades in BC's toughest conditions.</p>
+        </div>
+        <div class="value-card">
+          <h3>Community</h3>
+          <p>We're a local BC company, not a national franchise. Every dollar you spend on solar stays in BC. We invest in our crews, our community, and BC's clean energy future.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team" style="background: var(--sky-mid);">
+      <div class="reveal">
+        <div class="section-tag">Our Team</div>
+        <div class="divider"></div>
+        <h2 class="section-title">The People Behind the Panels</h2>
+        <p class="section-sub">Our team of certified electricians, solar PV installers, and project coordinators who bring every system to life.</p>
+      </div>
+      <div class="team-grid reveal">
+        <div class="team-card">
+          <div class="team-avatar">JM</div>
+          <h3>James Mitchell</h3>
+          <div class="team-role">Founder &amp; Lead Electrician</div>
+          <p>Red Seal Master Electrician with 18 years of experience. Founded AuraVolt after seeing too many homeowners let down by careless contractors.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">PL</div>
+          <h3>Patricia Lin</h3>
+          <div class="team-role">Solar PV Design Lead</div>
+          <p>Certified Solar PV Installer and design specialist. Patricia oversees every system design and 3D modelling process to maximize output for each unique roof.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">RB</div>
+          <h3>Ryan Bouchard</h3>
+          <div class="team-role">Permitting &amp; Rebates Manager</div>
+          <p>BC's permitting expert. Ryan has filed hundreds of BC Hydro and municipal permit applications and ensures every project captures the maximum available rebates.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">KS</div>
+          <h3>Karen Sandhu</h3>
+          <div class="team-role">Client Success Manager</div>
+          <p>Karen is your point of contact from first call to final activation. She keeps projects on schedule and clients informed at every stage.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">TN</div>
+          <h3>Tomás Nguyen</h3>
+          <div class="team-role">Senior Installation Technician</div>
+          <p>10 years on rooftops across BC. Tomás leads our installation crews and sets the standard for quality and safety on every job site.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">AB</div>
+          <h3>Aisha Baxter</h3>
+          <div class="team-role">Maintenance &amp; Service Lead</div>
+          <p>Aisha runs our maintenance and inspection program, ensuring every installed system continues performing at its peak for decades to come.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" style="background: var(--sky);">
+      <div class="reveal">
+        <div class="section-tag">Testimonials</div>
+        <div class="divider"></div>
+        <h2 class="section-title">What BC Says About Us</h2>
+      </div>
+      <div class="testimonials-grid reveal">
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>From the first call to activation, the AuraVolt team was professional, responsive, and transparent. My bill dropped by 80% in the first month.</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">MK</div>
+            <div>
+              <div class="reviewer-name">Michael K.</div>
+              <div class="reviewer-loc">North Vancouver, BC</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>AuraVolt handled every permit form and rebate application. I literally just showed up at activation day. Couldn't have been easier.</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">SR</div>
+            <div>
+              <div class="reviewer-name">Sarah R.</div>
+              <div class="reviewer-loc">Burnaby, BC</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>Our commercial system has outperformed projections by 14% in year one. These guys are the real deal — on time, on budget, exceptional work.</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">TW</div>
+            <div>
+              <div class="reviewer-name">Trevor W.</div>
+              <div class="reviewer-loc">Surrey, BC — Commercial</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="reveal">
+        <div class="section-tag" style="display:block;text-align:center;">Work With Us</div>
+        <h2 class="section-title">Meet the Team<br>In Person</h2>
+        <p class="section-sub">Every quote starts with a real conversation. Let's talk about your property, your goals, and what solar can do for you.</p>
+        <div style="display:flex;justify-content:center;gap:16px;margin-top:32px;flex-wrap:wrap;">
+          <a href="contact.html" class="btn-primary">Get a Free Quote</a>
+          <a href="services.html" class="btn-secondary">View Services</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/main.js"></script>
+</body>
+</html>

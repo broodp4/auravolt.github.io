@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing – AuraVolt</title>
+  <meta name="description" content="Transparent solar installation pricing for BC homeowners and businesses. Get a free custom quote." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .pricing-section { background: var(--sky); }
+    .rebates-section {
+      background: var(--sky-mid);
+      padding: 100px 80px;
+    }
+    .rebates-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .rebate-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 8px;
+      padding: 36px;
+      transition: all 0.3s;
+    }
+    .rebate-card:hover { border-color: rgba(61,220,151,0.3); }
+    .rebate-amount {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px;
+      color: var(--green);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .rebate-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 12px; }
+    .rebate-card p { font-size: 14px; color: rgba(248,245,238,0.65); line-height: 1.65; }
+    .faq-section { background: var(--sky); padding: 100px 80px; }
+    .faq-list { max-width: 720px; margin-top: 48px; display: flex; flex-direction: column; gap: 4px; }
+    .faq-item {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 28px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 500;
+      transition: background 0.2s;
+      list-style: none;
+      user-select: none;
+    }
+    .faq-question:hover { background: rgba(255,255,255,0.03); }
+    .faq-question::after { content: '+'; color: var(--sun); font-size: 20px; flex-shrink: 0; }
+    .faq-item.open .faq-question::after { content: '−'; }
+    .faq-answer {
+      padding: 0 28px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(248,245,238,0.7);
+    }
+    .faq-item.open .faq-answer { max-height: 300px; padding: 0 28px 22px; }
+    @media (max-width: 900px) {
+      .rebates-grid { grid-template-columns: 1fr; }
+      .rebates-section, .faq-section { padding: 72px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <script src="js/components.js"></script>
+
+  <main>
+
+    <div class="page-hero">
+      <div class="section-tag">Pricing</div>
+      <div class="divider"></div>
+      <h1>Transparent Solar<br>Pricing for BC</h1>
+      <p>Every home and business is different. We provide free custom quotes — but here's a clear overview of typical investment ranges and available rebates.</p>
+    </div>
+
+    <!-- PRICING CARDS -->
+    <section class="pricing-section">
+      <div class="reveal">
+        <div class="section-tag">Investment Ranges</div>
+        <div class="divider"></div>
+        <h2 class="section-title">Solar System Pricing</h2>
+        <p class="section-sub">Costs vary based on system size, roof complexity, battery additions, and equipment tier. All prices shown before BC Hydro rebates.</p>
+      </div>
+      <div class="pricing-grid reveal">
+
+        <div class="pricing-card">
+          <h3>Small Residential</h3>
+          <p style="font-size:13px;color:var(--gray);margin-bottom:4px;">3 – 6 kW system</p>
+          <div class="pricing-range">$15K – $25K</div>
+          <p class="pricing-note">Before rebates &amp; incentives</p>
+          <ul class="pricing-features">
+            <li>Ideal for 1–2 bedroom homes or condos</li>
+            <li>6–14 solar panels</li>
+            <li>Reduces bills by 50–70%</li>
+            <li>Net metering with BC Hydro</li>
+            <li>10-year workmanship warranty</li>
+            <li>Full permit management included</li>
+          </ul>
+          <a href="contact.html" class="btn-secondary" style="display:block;text-align:center;">Get a Quote</a>
+        </div>
+
+        <div class="pricing-card featured">
+          <div class="pricing-badge">Most Popular</div>
+          <h3>Standard Residential</h3>
+          <p style="font-size:13px;color:var(--gray);margin-bottom:4px;">7 – 12 kW system</p>
+          <div class="pricing-range">$25K – $40K</div>
+          <p class="pricing-note">Before rebates &amp; incentives</p>
+          <ul class="pricing-features">
+            <li>Ideal for 3–4 bedroom family homes</li>
+            <li>16–28 solar panels</li>
+            <li>Reduces bills by 70–95%</li>
+            <li>Net metering with BC Hydro</li>
+            <li>Battery storage option available</li>
+            <li>EV charger integration available</li>
+            <li>10-year workmanship warranty</li>
+          </ul>
+          <a href="contact.html" class="btn-primary" style="display:block;text-align:center;">Get a Quote</a>
+        </div>
+
+        <div class="pricing-card">
+          <h3>Commercial &amp; Large</h3>
+          <p style="font-size:13px;color:var(--gray);margin-bottom:4px;">13 kW+ system</p>
+          <div class="pricing-range">$40K+</div>
+          <p class="pricing-note">Custom quote required</p>
+          <ul class="pricing-features">
+            <li>Large homes, farms, businesses</li>
+            <li>30+ solar panels</li>
+            <li>Near-zero energy costs possible</li>
+            <li>Accelerated depreciation benefits</li>
+            <li>Dedicated account manager</li>
+            <li>Priority maintenance scheduling</li>
+            <li>Custom warranty packages</li>
+          </ul>
+          <a href="contact.html" class="btn-secondary" style="display:block;text-align:center;">Request Custom Quote</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- REBATES -->
+    <section class="rebates-section">
+      <div class="reveal">
+        <div class="section-tag">Incentives</div>
+        <div class="divider"></div>
+        <h2 class="section-title">BC Rebates &amp; Incentives</h2>
+        <p class="section-sub">We handle every rebate application for you — so you capture every dollar available.</p>
+      </div>
+      <div class="rebates-grid reveal">
+        <div class="rebate-card">
+          <div class="rebate-amount">$5K</div>
+          <h3>BC Hydro Solar Rebate</h3>
+          <p>BC Hydro offers rebates for grid-connected solar systems. Amount depends on system size. We submit the application on your behalf after installation.</p>
+        </div>
+        <div class="rebate-card">
+          <div class="rebate-amount">30%</div>
+          <h3>Canada Greener Homes Grant</h3>
+          <p>The federal Canada Greener Homes program offers interest-free loans and grants up to $5,000 toward eligible solar and battery systems.</p>
+        </div>
+        <div class="rebate-card">
+          <div class="rebate-amount">$0</div>
+          <h3>Net Metering Credits</h3>
+          <p>With BC Hydro net metering, excess energy your panels produce is fed back to the grid — and credited directly to your electricity bill.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="reveal">
+        <div class="section-tag">FAQ</div>
+        <div class="divider"></div>
+        <h2 class="section-title">Pricing Questions Answered</h2>
+      </div>
+      <div class="faq-list reveal">
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">How long does it take to pay off a solar system?</div>
+          <div class="faq-answer">Most residential systems in BC pay themselves off in 7–12 years, depending on your current electricity consumption, system size, and available rebates. After payback, you enjoy free or near-free electricity for 15+ more years.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">Are there financing options available?</div>
+          <div class="faq-answer">Yes. We work with several financing partners to offer low-interest solar loans. The Canada Greener Homes program also provides interest-free loans up to $40,000. Ask us about current financing options when you request a quote.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">What's included in the quoted price?</div>
+          <div class="faq-answer">All our quotes include equipment (panels, inverters, mounting hardware), labour, permit fees, BC Hydro application, project management, and system activation. There are no hidden fees.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">How accurate is my savings estimate?</div>
+          <div class="faq-answer">We use your actual BC Hydro bills, precise roof measurements, and shading analysis tools to produce conservative savings projections. Most of our customers see savings equal to or exceeding our estimates in their first year.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">What warranties come with my system?</div>
+          <div class="faq-answer">Premium panels carry 25-year performance warranties from the manufacturer. Inverters typically carry 10–25 year warranties. We provide a 10-year workmanship warranty on all our installations, covering any issues related to our work.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="reveal">
+        <div class="section-tag" style="display:block;text-align:center;">Get Your Custom Quote</div>
+        <h2 class="section-title">No Obligation.<br>Just Numbers.</h2>
+        <p class="section-sub">We'll give you a precise quote for your property — including savings projections, rebate amounts, and payback period.</p>
+        <div style="display:flex;justify-content:center;gap:16px;margin-top:32px;flex-wrap:wrap;">
+          <a href="contact.html" class="btn-primary">Get a Free Quote</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/main.js"></script>
+  <script>
+    function toggleFaq(el) {
+      const item = el.closest('.faq-item');
+      item.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
