@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services – AuraVolt</title>
+  <meta name="description" content="Residential solar, commercial solar, EV charging, battery storage, off-grid systems, and maintenance across BC." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .service-detail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      padding: 80px 80px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .service-detail:nth-child(even) .service-detail-text { order: 2; }
+    .service-detail:nth-child(even) .service-detail-visual { order: 1; }
+    .service-detail-visual {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 60px;
+      display: flex; align-items: center; justify-content: center;
+      aspect-ratio: 4/3;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-detail-visual::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(245,166,35,0.08) 0%, transparent 70%);
+    }
+    .service-big-icon {
+      width: 100px; height: 100px;
+      background: rgba(245,166,35,0.1);
+      border: 1px solid rgba(245,166,35,0.2);
+      border-radius: 20px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; z-index: 1;
+    }
+    .service-big-icon svg { width: 52px; height: 52px; stroke: var(--sun); fill: none; stroke-width: 1.2; }
+    .service-detail-text h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 44px; letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+    .service-detail-text p { font-size: 16px; line-height: 1.75; color: rgba(248,245,238,0.7); margin-bottom: 20px; }
+    .service-detail-text ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .service-detail-text ul li {
+      display: flex; gap: 12px; align-items: flex-start;
+      font-size: 15px; color: rgba(248,245,238,0.75);
+    }
+    .service-detail-text ul li::before { content: '✓'; color: var(--green); flex-shrink: 0; margin-top: 2px; }
+    @media (max-width: 900px) {
+      .service-detail { grid-template-columns: 1fr; padding: 60px 28px; gap: 40px; }
+      .service-detail:nth-child(even) .service-detail-text { order: 1; }
+      .service-detail:nth-child(even) .service-detail-visual { order: 2; }
+    }
+  </style>
+</head>
+<body>
+
+  <script src="js/components.js"></script>
+
+  <main>
+
+    <div class="page-hero">
+      <div class="section-tag">Our Services</div>
+      <div class="divider"></div>
+      <h1>Complete Solar Solutions<br>Across British Columbia</h1>
+      <p>From rooftop panels to off-grid systems — every service performed by our own certified in-house team.</p>
+    </div>
+
+    <!-- Residential -->
+    <div id="residential" class="service-detail reveal">
+      <div class="service-detail-text">
+        <div class="section-tag">Residential</div>
+        <h2>Residential Solar Panel Installation</h2>
+        <p>Customized solar systems for single-family homes and multi-residential properties, specifically designed to thrive in BC's diverse climate conditions.</p>
+        <ul>
+          <li>Satellite roof assessment and 3D system modelling</li>
+          <li>Tailored panel layout for maximum sun exposure</li>
+          <li>Full permit management with BC Hydro net-metering setup</li>
+          <li>Battery storage integration available</li>
+          <li>25-year panel performance warranties on top brands</li>
+        </ul>
+        <br />
+        <a href="contact.html" class="btn-primary" style="width:fit-content;margin-top:8px;">Get Residential Quote</a>
+      </div>
+      <div class="service-detail-visual">
+        <div class="service-big-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Commercial -->
+    <div id="commercial" class="service-detail reveal">
+      <div class="service-detail-text">
+        <div class="section-tag">Commercial</div>
+        <h2>Commercial Solar Power Installation</h2>
+        <p>Comprehensive solutions for warehouses, retail, agriculture, strata, and large-scale commercial projects. We minimize operating costs while helping you hit sustainability targets.</p>
+        <ul>
+          <li>Large-scale system design and engineering</li>
+          <li>Structural load analysis and roof compatibility reports</li>
+          <li>Full compliance with BC building codes and Technical Safety BC</li>
+          <li>Ongoing monitoring dashboards for facilities managers</li>
+          <li>EV charging station integration available</li>
+        </ul>
+        <br />
+        <a href="contact.html" class="btn-primary" style="width:fit-content;margin-top:8px;">Get Commercial Quote</a>
+      </div>
+      <div class="service-detail-visual">
+        <div class="service-big-icon">
+          <svg viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- EV -->
+    <div id="ev" class="service-detail reveal">
+      <div class="service-detail-text">
+        <div class="section-tag">EV Charging</div>
+        <h2>EV Charging Station Installation</h2>
+        <p>Certified EV charging station contractors for homes and commercial properties. Pair with your solar system to charge your vehicle on free, clean energy you generate yourself.</p>
+        <ul>
+          <li>Level 1, 2, and DC fast charger installation</li>
+          <li>Smart charging systems with scheduling and monitoring</li>
+          <li>Multi-unit strata and parkade installations</li>
+          <li>BC Hydro EV rebate applications handled</li>
+          <li>Seamlessly integrated with your existing or new solar system</li>
+        </ul>
+        <br />
+        <a href="contact.html" class="btn-primary" style="width:fit-content;margin-top:8px;">Get EV Charging Quote</a>
+      </div>
+      <div class="service-detail-visual">
+        <div class="service-big-icon">
+          <svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Battery -->
+    <div id="battery" class="service-detail reveal">
+      <div class="service-detail-text">
+        <div class="section-tag">Battery Storage</div>
+        <h2>Solar Battery Storage Solutions</h2>
+        <p>Capture excess energy from your panels during the day and use it at night or during outages. Battery storage is the missing piece for true energy independence.</p>
+        <ul>
+          <li>Tesla Powerwall, Enphase Encharge, and more</li>
+          <li>Whole-home backup or targeted circuit protection</li>
+          <li>Retrofits onto existing solar systems</li>
+          <li>Time-of-use optimization to avoid peak pricing</li>
+          <li>Remote monitoring and management via app</li>
+        </ul>
+        <br />
+        <a href="contact.html" class="btn-primary" style="width:fit-content;margin-top:8px;">Get Battery Quote</a>
+      </div>
+      <div class="service-detail-visual">
+        <div class="service-big-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Off-Grid -->
+    <div id="offgrid" class="service-detail reveal">
+      <div class="service-detail-text">
+        <div class="section-tag">Off-Grid</div>
+        <h2>Off-Grid &amp; Hybrid Systems</h2>
+        <p>Dependable power solutions for rural cabins, farms, and remote properties where traditional grid access is unavailable or cost-prohibitive.</p>
+        <ul>
+          <li>Complete off-grid solar + battery system design</li>
+          <li>Hybrid grid-tie systems with backup capability</li>
+          <li>Generator integration for extended low-sun periods</li>
+          <li>Remote monitoring and diagnostics</li>
+          <li>Expandable modular systems that grow with your needs</li>
+        </ul>
+        <br />
+        <a href="contact.html" class="btn-primary" style="width:fit-content;margin-top:8px;">Get Off-Grid Quote</a>
+      </div>
+      <div class="service-detail-visual">
+        <div class="service-big-icon">
+          <svg viewBox="0 0 24 24"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Maintenance -->
+    <div id="maintenance" class="service-detail reveal">
+      <div class="service-detail-text">
+        <div class="section-tag">Maintenance</div>
+        <h2>Solar Maintenance &amp; Inspections</h2>
+        <p>Regular upkeep and assessments to ensure your system operates at peak efficiency for its entire 25+ year lifespan. We also remove and replace outdated or non-compliant solar equipment.</p>
+        <ul>
+          <li>Annual performance inspections and diagnostic reporting</li>
+          <li>Panel cleaning and debris removal</li>
+          <li>Inverter and microinverter servicing</li>
+          <li>Safe removal of outdated panels, wiring, and controllers</li>
+          <li>System upgrades and capacity expansions</li>
+        </ul>
+        <br />
+        <a href="contact.html" class="btn-primary" style="width:fit-content;margin-top:8px;">Book Maintenance</a>
+      </div>
+      <div class="service-detail-visual">
+        <div class="service-big-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="reveal">
+        <div class="section-tag" style="display:block;text-align:center;">Ready to Start?</div>
+        <h2 class="section-title">Let's Build Your<br>Solar System</h2>
+        <p class="section-sub">Our team is ready to assess your property and design a system that fits your budget and goals.</p>
+        <div style="display:flex;justify-content:center;gap:16px;margin-top:32px;flex-wrap:wrap;">
+          <a href="contact.html" class="btn-primary">Get a Free Quote</a>
+          <a href="pricing.html" class="btn-secondary">View Pricing</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/main.js"></script>
+</body>
+</html>
