@@ -1,9 +1,0 @@
-{
-  "name": "auravolt-website",
-  "version": "1.0.0",
-  "description": "AuraVolt solar installation website",
-  "scripts": {
-    "start": "npx serve .",
-    "dev": "npx http-server . -p 3000 -o"
-  }
-}
