@@ -16,28 +16,59 @@
       gap: 24px;
       margin-top: 60px;
     }
+    @media (max-width: 900px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .team-grid { grid-template-columns: 1fr; } }
+
     .team-card {
       background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 8px;
-      padding: 36px;
+      border-radius: 12px;
+      padding: 36px 28px 24px;
       text-align: center;
-      transition: all 0.3s;
+      transition: border-color 0.3s, transform 0.3s;
+      display: flex;
+      flex-direction: column;
     }
     .team-card:hover { border-color: rgba(245,166,35,0.3); transform: translateY(-4px); }
     .team-avatar {
-      width: 80px; height: 80px;
-      border-radius: 50%;
+      width: 80px; height: 80px; border-radius: 50%;
       background: linear-gradient(135deg, var(--sun), var(--sky-light));
       display: flex; align-items: center; justify-content: center;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 28px;
-      color: var(--sky);
-      margin: 0 auto 20px;
+      font-family: 'Bebas Neue', sans-serif; font-size: 28px;
+      color: var(--sky); margin: 0 auto 20px; flex-shrink: 0;
     }
     .team-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
-    .team-card .team-role { font-size: 13px; color: var(--sun); font-weight: 600; margin-bottom: 12px; }
-    .team-card p { font-size: 14px; color: rgba(248,245,238,0.65); line-height: 1.6; }
+    .team-card .team-role { font-size: 13px; color: var(--sun); font-weight: 600; margin-bottom: 16px; }
+    .team-summary { font-size: 14px; color: rgba(248,245,238,0.65); line-height: 1.6; }
+
+    /* Expandable bio */
+    .team-bio { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease; opacity: 0; margin-top: 0; }
+    .team-card.expanded .team-bio { max-height: 500px; opacity: 1; margin-top: 14px; }
+    .team-bio-inner {
+      font-size: 14px; color: rgba(248,245,238,0.6); line-height: 1.75;
+      text-align: left; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 14px;
+    }
+    .team-bio-inner p { margin-bottom: 10px; }
+    .team-bio-inner p:last-child { margin-bottom: 0; }
+    .team-bio-inner a { color: var(--sun); font-weight: 600; text-decoration: none; }
+    .team-bio-inner a:hover { text-decoration: underline; }
+    .team-bio-inner ul { margin: 8px 0 10px 18px; padding: 0; }
+    .team-bio-inner ul li { margin-bottom: 4px; }
+
+    /* Expand button */
+    .expand-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 18px; padding: 7px 16px;
+      border: 1px solid rgba(245,166,35,0.35); border-radius: 20px;
+      background: transparent; color: var(--sun);
+      font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600;
+      letter-spacing: 0.4px; cursor: pointer; transition: all 0.2s; align-self: center;
+    }
+    .expand-btn:hover { background: rgba(245,166,35,0.1); border-color: var(--sun); }
+    .expand-btn .btn-arrow { display: inline-block; transition: transform 0.3s ease; }
+    .team-card.expanded .expand-btn .btn-arrow { transform: rotate(180deg); }
+    .team-card.expanded .expand-btn { background: rgba(245,166,35,0.12); }
+    
     .values-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -174,13 +205,13 @@
         <!-- Sanka -->
         <div class="team-card">
           <div class="team-avatar">DL</div>
-          <h3>Dulanja Lekamwasam</h3>
+          <h3>Dylan Lake</h3>
           <div class="team-role">Lead Solar Consultant</div>
           <p class="team-summary">Helps homeowners and businesses across BC go solar with free, no-obligation consultations.</p>
           <div class="team-bio">
             <div class="team-bio-inner">
-              <p>If you would like to find out how much you could save with solar, I would be happy to provide a free consultation and no-obligation assessment of your property.</p>
-              <p>His background in electrical systems means he spots issues before they become problems, keeping warranties intact and systems producing at their best.</p>
+              <p>Dylan brings hands-on experience from the printing and advertising industry to his role in renewable energy. He helps clients across British Columbia understand the full value of going solar — from reduced monthly hydro bills to long-term property value gains.</p>
+              <p>Free consultations and no-obligation property assessments available — <a href="contact.html">get in touch</a>.</p>
             </div>
           </div>
           <button class="expand-btn" onclick="toggleCard(this)" aria-expanded="false">
@@ -196,9 +227,8 @@
           <p class="team-summary">Helps homeowners and businesses across BC go solar with free, no-obligation consultations.</p>
           <div class="team-bio">
             <div class="team-bio-inner">
-              <p>Brings a background in printing and advertising to her role as AuraVolt's Solar Sales Consultant. She specializes in walking clients through the full financial picture — BC Hydro rebates of up to $10,000, Net Billing credits, and long-term bill savings — so every decision is well-informed.</p>
-              <p>She offers free consultations and has helped hundreds of BC homeowners and businesses make the move to solar confidently.</p>
-              <p><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn Profile →</a></p>
+              <p>Yasinda oversees sales strategy, customer engagement, and digital marketing at AuraVolt. His focus is on making solar energy accessible and understandable for every client — from the first conversation to a signed contract.</p>
+              <p>He believes solar is more than a technology investment. It's an investment in a cleaner, more sustainable world — and his goal is to make sure every customer he works with feels that way too.</p>
             </div>
           </div>
           <button class="expand-btn" onclick="toggleCard(this)" aria-expanded="false">
@@ -239,6 +269,15 @@
 
   <div id="footer-placeholder"></div>
   <script src="js/main.js"></script>
+  <script>
+    function toggleCard(btn) {
+      const card = btn.closest('.team-card');
+      const isExpanded = card.classList.contains('expanded');
+      card.classList.toggle('expanded', !isExpanded);
+      btn.setAttribute('aria-expanded', String(!isExpanded));
+      btn.childNodes[0].textContent = isExpanded ? 'View Profile ' : 'Hide Profile ';
+    }
+  </script>
 </body>
 </html>
 
